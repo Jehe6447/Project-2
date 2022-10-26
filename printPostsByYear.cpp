@@ -1,37 +1,40 @@
-void printPostsByYear(Post posts[],string year,int numPostsS)
+#include "Post.h"
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <fstream>
+
+using namespace std;
+
+void printPostsByYear(Post posts[],string YY,int numPostsS)
 {
     if(numPostsS <= 0)
     {
         cout << "No posts are stored" << endl;
+        return;
     }
-        else
+    bool found = false;
+    for(int i=0 ; i< numPostsS; i++)
+    {
+        if(posts[i].getPostDate().substr(6,7)== YY)
         {
-            int count = 0;
-            for(int i=0; i > numPostsS; i++)
-            {
-                if(posts[i].getPostDate().substr(0,2)== year)
-                {
-                    count++;    
-                }   
-            }
-            if(numPostsS > 0)
-                {
-                    cout << "Here is a list of posts for year " << year << endl;
-                    for(int i=0; i < numPostsS; i++)
-                    {       
-                        if(posts[i].getPostDate().substr(0,2)== year)
-                        {
-                            cout << posts[i].getPostBody() << endl;
-                        }
-                    }
-                }
-            else
-            {
-                cout << "No posts stored for year " << year <<endl;
-            }
-
-
-
-
+            found = true;
+            break;
         }
+    }
+    //if there is a singular presence of the post year in search
+    if(found)
+    {
+       cout << "Here is a list of posts for year " << YY << endl;
+       for (int i=0; i< numPostsS;i++)
+       {
+           if(posts[i].getPostDate().substr(6,7)== YY)
+           {
+               cout << posts[i].getPostBody() << endl;
+           }
+       }
+    }
+    else{ 
+        cout << "No posts stored for year " << YY<< endl;
+    }
 }
