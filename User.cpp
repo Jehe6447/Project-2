@@ -6,7 +6,6 @@
 using namespace std;
 
 
-//Default constructor 
 User::User()
 {
     username_ = "";
