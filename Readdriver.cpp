@@ -1,3 +1,12 @@
+#include "Post.h"
+#include <string>
+#include <cstring>
+#include <fstream>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
 int readLikes (string fileName, User users[],int numUsersS, int usersArrSize, int maxPosts)
 {
 
