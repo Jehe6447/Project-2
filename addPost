@@ -1,0 +1,11 @@
+ 
+ 
+ if (getNumPosts() <= 50) {
+        Post tempPost(post_body, post_author, 0, date);
+        posts[num_posts_] = tempPost;
+        num_posts_++;
+        return true;
+    }
+    else {
+        return false;
+    }
